@@ -1,0 +1,46 @@
+.title{
+    font-size: 81px;
+    line-height: 96px;
+    font-family: 'Parisienne', cursive;
+    letter-spacing: 2px;
+    color: #696969;
+}
+
+.title::after{
+    background: url(https://3.bp.blogspot.com/-C6Kh_uSsIw4/WFxxievADEI/AAAAAAAABKo/YTErhZH26N0DkfTie5QddrlhKjevLkZeACLcB/s1600/flora.png);
+    height: 100px;
+    width: 74px;
+    content: '';
+    display: inline-block;
+    margin-bottom: -29px;
+    background-position: -75px 0px;
+    margin-left: 10px;
+}
+.title::before{
+    background: url(https://3.bp.blogspot.com/-C6Kh_uSsIw4/WFxxievADEI/AAAAAAAABKo/YTErhZH26N0DkfTie5QddrlhKjevLkZeACLcB/s1600/flora.png);
+    height: 100px;
+    width: 88px;
+    content: '';
+    display: inline-block;
+    margin-bottom: -29px;
+    margin-right: 5px;
+}
+nav {
+    background-image: url(http://hand-crafted-joy.eppearance.pl/wp-content/themes/hand-crafted-joy/img/Menu%20Background.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    text-align: center;
+    /* height: 95px; */
+    margin-bottom: 30px;
+}
+nav li.active a {
+    color: #d6a43c!important;
+}
+nav a {
+    margin-top: 14px;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 19px;
+    color: #8c8c8c;
+}

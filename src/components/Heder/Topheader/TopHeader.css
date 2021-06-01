@@ -1,0 +1,23 @@
+.topImage{
+    background-image: url("http://hand-crafted-joy.eppearance.pl/wp-content/themes/hand-crafted-joy/img/Top%20Stripe.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 150px;
+    text-align: left;
+    background-size: cover;
+    overflow: hidden;
+}
+/* .social-top li {
+    float: left;
+    display: inline-block;
+    font-size: 20px;
+    background-image: url(http://hand-crafted-joy.eppearance.pl/wp-content/themes/hand-crafted-joy/img/social-bg.png);
+    background-repeat: no-repeat;
+    width: 34px;
+    height: 34p;
+    text-align: center;
+    line-height: 34px;
+}
+facebook:before {
+    content: "\f09a";
+} */
