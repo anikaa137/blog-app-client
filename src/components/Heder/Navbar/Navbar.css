@@ -29,7 +29,7 @@ nav {
     background-image: url(http://hand-crafted-joy.eppearance.pl/wp-content/themes/hand-crafted-joy/img/Menu%20Background.png);
     background-repeat: no-repeat;
     background-position: center;
-    background-size: contain;
+    background-size: cover;
     text-align: center;
     /* height: 95px; */
     margin-bottom: 30px;

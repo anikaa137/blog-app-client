@@ -2,7 +2,7 @@ import React from 'react'
 import './Navbar.css'
 function componentName() {
     return (
-        <div>
+        <div calss="mb-5">
             <h1 class="title text-center mt-3" >Readit Blog</h1>
             <nav class="navbar navbar-expand-lg navbar-light nav">
   <div class="container-fluid">

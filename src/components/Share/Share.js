@@ -4,7 +4,8 @@ import Footer from '../Share/Footer/Footer'
 function componentName() {
     return (
         <div>
-            <Footer/>
+            <Footer />
+            
         </div>
     )
 }
