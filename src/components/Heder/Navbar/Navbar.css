@@ -34,10 +34,10 @@ nav {
     /* height: 95px; */
     margin-bottom: 30px;
 }
-nav li.active a {
+nav li.active Link {
     color: #d6a43c!important;
 }
-nav a {
+nav Link {
     margin-top: 14px;
     text-transform: uppercase;
     text-decoration: none;

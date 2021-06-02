@@ -10,6 +10,7 @@ import BlogDetails from '../src/components/Blog/BlogDetails/BlogDetails'
 import Login from "./components/Share/Login/Login"
 import { createContext } from 'react';
 import { useState } from 'react';
+import PrivateRoute from "./components/Share/Login/PrivateRoute/PrivateRoute";
 
 export const UserContext = createContext()
 
@@ -27,9 +28,9 @@ function App() {
           <Route path="/AddBlog">
              <AddBlog/>
           </Route>
-          <Route path="/blogdetailes/:id">
+          <PrivateRoute path="/blogdetailes/:id">
             <BlogDetails/>
-          </Route>
+          </PrivateRoute>
           <Route path="/login">
              <Login/>
           </Route>

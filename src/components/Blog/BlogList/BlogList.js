@@ -17,6 +17,7 @@ function  BlogList() {
             {
                 blogs.map(blogg => <BlogCards blogg={blogg}></BlogCards>)
             }
+            
         </div>
     )
 }
