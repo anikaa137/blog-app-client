@@ -1,14 +1,16 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import BlogEditAndDelite from '../BlogEditAndDelite/BlogEditAndDelite'
 import Footer from '../../Share/Footer/Footer'
 import TopHeader from '../../Heder/Topheader/TopHeader'
 import Nabbar from '../../Heder/Navbar/Navbar'
+import { UserContext } from '../../../App'
 
 const ManageBlog = () => {
     const [blogs, setBlogs] = useState([])
-
+    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+    // console.log(loggedInUser)
     useEffect(() => {
-        fetch('http://localhost:5000/Blogs')
+        fetch('http://localhost:5000/OneUser?email='+loggedInUser.email)
         .then(res => res.json())
         .then(data =>  setBlogs(data))
     },[])
