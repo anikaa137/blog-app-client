@@ -4,7 +4,6 @@ import { UserContext } from '../../../App';
 import './Navbar.css'
 
 function  Nabbar() {
-	const [loggedInUser, setLoggedInUser] = useContext (UserContext);
 
     return (
         <div calss="mb-5">

@@ -22,8 +22,9 @@ function  BlogCards({ blogg }) {
       <img src={imageURL} class="card-img-top" alt="..."/>
         <div class="card-body">
         <h5 class="card-title">{title}</h5>
-        <small class="text-muted">{ date}</small>
-        <p class="card-text">{blog.slice(0,300)}....</p>
+                <small class="text-muted ">{Author}  write on  {date}</small>
+
+        <p class="card-text mt-3">{blog.slice(0,300)}....</p>
         </div>
         <div class="card-footer">
       <small style={{cursor:"pointer"}} class="text-muted" onClick={()=> readBlog(_id)}>READ MORE</small>

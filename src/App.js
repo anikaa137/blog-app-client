@@ -11,6 +11,7 @@ import Login from "./components/Share/Login/Login"
 import { createContext } from 'react';
 import { useState } from 'react';
 import PrivateRoute from "./components/Share/Login/PrivateRoute/PrivateRoute";
+import ManageBlog from "./components/User/ManageBlog/ManageBlog";
 
 export const UserContext = createContext()
 
@@ -33,6 +34,9 @@ function App() {
           </Route>
           <Route path="/login">
              <Login/>
+          </Route>
+          <Route path="/BlogManage">
+            <ManageBlog/>
           </Route>
         </Switch>
 
