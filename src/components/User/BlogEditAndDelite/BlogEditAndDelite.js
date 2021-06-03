@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router";
+
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import { } from "@fortawesome/free-solid-svg-icons";
 
 function BlogEditAndDelite({ blogg }) {
     const [render, setRender] = useState(1); /// delete state
+    const [blogsdetails, setBologDetails] = useState([]);
 
     const { _id, Author, blog, date, email, imageURL, title } = blogg;
     let history = useHistory();
@@ -26,10 +28,15 @@ function BlogEditAndDelite({ blogg }) {
             }
             });
     }
-
+    function loadProduct(id) {
+        fetch(`http://localhost:5000/blogDetails/${id}`)
+        .then(res => res.json())
+    .then(data =>  setBologDetails(data))
+    }
 
     return (
         <div>
+
             <div class="container">
                 <div class="col">
                     <div class="card h-100">
@@ -58,7 +65,7 @@ function BlogEditAndDelite({ blogg }) {
                                                 } type="button" class="btn btn-danger">
                                     Delete
                                 </button>{" "}
-                                <button type="button" class="btn btn-info">
+                                <button onClick={() =>loadProduct(_id)} type="button" class="btn btn-info">
                                     Edit
                                 </button>
                             </span>
