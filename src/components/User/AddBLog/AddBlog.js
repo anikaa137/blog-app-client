@@ -1,13 +1,17 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
-
+import { UserContext } from "../../../App";
+import Nabbar from "../../Heder/Navbar/Navbar";
+import TopHeader from "../../Heder/Topheader/TopHeader";
+import Footer from '../../Share/Footer/Footer'
 function AddBlog() {
-    
+
     const { register, handleSubmit } = useForm();
     const [imageURL, setImageURL] = useState(null);
 
-    // const [loggedInUser, setLoggedInUser] = useContext(userContext)
+    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+
 
     const onSubmit = (data) => {
         // console.log(data)
@@ -49,7 +53,10 @@ function AddBlog() {
             });
     };
     return (
-        <div class="container m-5">
+        <div >
+            <TopHeader />
+            <Nabbar/>
+            <div class="container m-5">
             <form onSubmit={handleSubmit(onSubmit)}>
             <div class="mb-3 col-md-9 mx-auto">
                     <label for="exampleFormControlInput1" class="form-label">
@@ -113,13 +120,17 @@ function AddBlog() {
                         class="form-control "
                         {...register("email", { required: true })}
                         id="exampleFormControlInput1"
-                        placeholder="name@example.com"
+                        defaultValue={loggedInUser.email}
                     />
                 </div>
                </div>
                 <br />
-                <input type="submit" />
+                <div class="mx-auto" style={{width: "200px"}}>
+                    <input class="mx-auto" type="submit" />
+                </div>
             </form>
+            </div>
+            <Footer/>
         </div>
     );
 }

@@ -10,10 +10,14 @@ import { faFacebook } from "@fortawesome/free-brands-svg-icons";
 import { useHistory, useLocation } from "react-router";
 
 
-firebase.initializeApp(firebaseConfig);
 // if (!firebase.apps.length) {
 //     firebase.initializeApp(firebaseConfig);
 // }
+if (!firebase.apps.length) {
+    firebase.initializeApp(firebaseConfig);
+ }else {
+    firebase.app(); // if already initialized, use that one
+ }
 
 function Login() {
 	const [loggedInUser, setLoggedInUser] = useContext(UserContext);
@@ -161,17 +165,20 @@ function Login() {
                         {newUser ? "create an account" : "Sign In"}
                     </h1>{" "}
                     <br />
-                    {/* <Form.Group controlId="formBasicEmail">
-                        {newUser && (
-                            <input
+                    <Form.Group controlId="formBasicEmail">
+
+                            <Form.Control
                                 type="text"
                                 name="name"
                                 onBlur={handleBlur}
                                 onFocus={handleBlur}
                                 placeholder="your name"
+                                required
+
                             />
-                        )}
-                    </Form.Group> */}
+
+                  </Form.Group>
+                  <br />
                     <Form.Group controlId="formBasicEmail">
                         <Form.Control
                             type="email"
@@ -181,7 +188,8 @@ function Login() {
                             placeholder="your email"
                             required
                         />
-                    </Form.Group>
+                  </Form.Group>
+                  <br />
                     <Form.Group controlId="formBasicEmail">
                         <Form.Control
                             type="password"
@@ -190,7 +198,8 @@ function Login() {
                             placeholder="password"
                             required
                         />
-                    </Form.Group>
+                  </Form.Group>
+                  <br />
                     {newUser && (
                         <Form.Group controlId="formBasicEmail">
                             <Form.Control
@@ -201,10 +210,12 @@ function Login() {
                                 required
                             />
                         </Form.Group>
-                    )}
+                  )}
+                  <br />
                     <Button type="submit">
                         {newUser ? "Sign up" : " Sign In"}
-                    </Button>
+                  </Button>
+                  <br /><br />
                     <Form.Group>
                         <label htmlFor="newUser">
                             {newUser
@@ -225,16 +236,17 @@ function Login() {
                         >
                             {newUser ? "signIn" : "create an account"}
                         </button>
-                    </Form.Group>
+                  </Form.Group>
+                  <br /> <br />
                     <Form.Group>
-                        {/* <button
+                        <button
                             onClick={googleSignIn}
                             type="button"
                             class="btn btn-outline-success"
                         >
                             <FontAwesomeIcon icon={faFacebook} />
                             <span class="p-4">Continue with Google</span>
-                        </button> */}
+                        </button>
                     </Form.Group>
                 </Form>
             </div>

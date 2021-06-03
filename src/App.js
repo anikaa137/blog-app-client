@@ -25,12 +25,12 @@ function App() {
           <Route exact path="/">
             <Home/>
           </Route>
-          <Route path="/AddBlog">
+          <PrivateRoute path="/AddBlog">
              <AddBlog/>
-          </Route>
-          <PrivateRoute path="/blogdetailes/:id">
-            <BlogDetails/>
           </PrivateRoute>
+          <Route path="/blogdetailes/:id">
+            <BlogDetails/>
+          </Route>
           <Route path="/login">
              <Login/>
           </Route>

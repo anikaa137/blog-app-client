@@ -7,6 +7,10 @@
     background-size: cover;
     overflow: hidden;
 }
+
+.dropdown-toggle::after {
+    display: none;
+}
 /* .social-top li {
     float: left;
     display: inline-block;

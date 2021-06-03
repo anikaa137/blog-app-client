@@ -17,35 +17,11 @@ function  Nabbar() {
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav mx-auto p-4">
-       <Link> <Link class="nav-link me-4 "   href="#">Home</Link></Link>
-        <Link class="nav-link me-4" href="#">Features</Link>
-        <Link class="nav-link me-4" href="#">Pricing</Link>
-        <Link class="nav-link  me-4" href="#" tabindex="-1" aria-disabled="true">Disabled</Link>
-        {/* <button onClick={()=>setLoggedInUser({})}>Sign out</button> */}
-                <li>
+       <Link   to="/" class="nav-link me-4 " > HOME </Link>
+        <Link  to="/" class="nav-link me-4"  > FEATURES</Link>
+        <Link  to="/" class="nav-link me-4"  > TAG ARCHIVE</Link>
+        <Link  to="/" class="nav-link  me-4" > AUTHOR ARCHIVE</Link>
 
-                {loggedInUser.email ? (
-                  ""
-                ) : (
-                  <Link
-                  to="/login"
-                  className="nav-link mr-5 "
-              >
-                  Login
-              </Link>
-                )}
-                {loggedInUser.email ? (
-                  <Link
-                    className="nav-link mr-5 "
-                    onClick={() => setLoggedInUser({})}
-                  >
-                    {" "}
-                    Logout
-                  </Link>
-                ) : (
-                  <p></p>
-              )}
-      </li>
 
       </div>
     </div>

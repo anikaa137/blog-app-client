@@ -1,0 +1,27 @@
+.footer-contents {
+    padding: 32px 0;
+
+}
+.copyrights {
+    float: left;
+    width: 100%;
+    color: #898479;
+    margin-top: 100px;
+    background: #fbf9f6;
+    padding: 50px 0px;
+    text-align: center;
+    position: relative;
+}
+.footer-golden {
+    background-image: url(http://hand-crafted-joy.eppearance.pl/wp-content/themes/hand-crafted-joy/img/Golden%20Texture%20footer.png);
+    background-repeat: no-repeat;
+    width: 601px;
+    height: 166px;
+    position: absolute;
+    right: 0px;
+    top: -90px;
+}
+.copyright-text{
+    width: 1200px;
+    margin: auto;
+}

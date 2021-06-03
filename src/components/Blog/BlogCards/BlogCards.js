@@ -27,7 +27,7 @@ function  BlogCards({ blogg }) {
         </div>
         <div class="card-footer">
       <small style={{cursor:"pointer"}} class="text-muted" onClick={()=> readBlog(_id)}>READ MORE</small>
-    </div>
+              </div>
     </div>
                 </div>
                 </div>
