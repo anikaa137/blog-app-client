@@ -7,7 +7,7 @@ function  BlogList() {
     const [blogs, setBlogs] = useState([])
 
     useEffect(() => {
-        fetch('https://desolate-brushlands-08726.herokuapp.com//Blogs')
+        fetch('https://desolate-brushlands-08726.herokuapp.com/Blogs')
         .then(res => res.json())
         .then(data =>  setBlogs(data))
     },[])

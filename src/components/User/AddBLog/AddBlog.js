@@ -25,7 +25,7 @@ function AddBlog() {
             time: new Date().setHours(24)
         }
         console.log(eventdata)
-        const url = `https://desolate-brushlands-08726.herokuapp.com//addingBlog`;
+        const url = `https://desolate-brushlands-08726.herokuapp.com/addingBlog`;
         fetch(url, {
             method: "POST",
             headers: {

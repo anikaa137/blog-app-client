@@ -19,7 +19,7 @@ function BlogEditAndDelite({ blogg }) {
                 //delete blog
     function deleteBlog(id) {
         console.log(id);
-        fetch(`https://desolate-brushlands-08726.herokuapp.com//delete/${id}`, {
+        fetch(`https://desolate-brushlands-08726.herokuapp.com/delete/${id}`, {
             method: "DELETE",
         })
             .then((res) => res.json())

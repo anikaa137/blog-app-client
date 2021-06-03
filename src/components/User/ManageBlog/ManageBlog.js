@@ -10,7 +10,7 @@ const ManageBlog = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     // console.log(loggedInUser)
     useEffect(() => {
-        fetch('https://desolate-brushlands-08726.herokuapp.com//OneUser?email='+loggedInUser.email)
+        fetch('https://desolate-brushlands-08726.herokuapp.com/OneUser?email='+loggedInUser.email)
         .then(res => res.json())
         .then(data =>  setBlogs(data))
     },[])
