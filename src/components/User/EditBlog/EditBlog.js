@@ -1,17 +1,16 @@
-import axios from "axios";
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from 'react'
+import { useParams } from 'react-router';
 import { useForm } from "react-hook-form";
-import { UserContext } from "../../../App";
-import Nabbar from "../../Heder/Navbar/Navbar";
-import TopHeader from "../../Heder/Topheader/TopHeader";
-import Footer from '../../Share/Footer/Footer'
-function AddBlog() {
+import { UserContext } from '../../../App';
+import axios from 'axios';
 
+
+
+function EditBlog() {
     const { register, handleSubmit } = useForm();
-    const [imageURL, setImageURL] = useState(null);
+    const [imageurl, setImageurl] = useState(null);
 
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
-
 
     const onSubmit = (data) => {
         // console.log(data)
@@ -23,23 +22,23 @@ function AddBlog() {
             imageURL: imageURL,
             date: new Date().toDateString(),
             time: new Date().setHours(24)
-        }
-        console.log(eventdata)
-        const url = `http://localhost:5000/addingBlog`;
-        fetch(url, {
-            method: "POST",
-            headers: {
-                'content-type':"application/json"
-            },
-            body: JSON.stringify(eventdata)
-        })
-        .then((result) => {
-            if (result) {
-         alert('Succefully add a blog')
-         }
-        });
-    };
+        };
+    console.log(eventdata)
+    fetch(` http://localhost:5000/updateBlog/${id}`, {
+        method: "PATCH",
+        headers: { "Content-type": "application/json" },
+        body: JSON.stringify(eventdata),
+    })
+        .then((res) => res.json())
+        .then((data) => {
+            console.log('update')
+            // console.log(render)
+            if (data) {
 
+            alert("Emloyee added successfully");
+            }
+        });
+    }
     const handleImageUpload = (event) => {
         console.log(event.target.files[0]);
         const imageData = new FormData();
@@ -50,16 +49,29 @@ function AddBlog() {
             .post("https://api.imgbb.com/1/upload", imageData)
             .then(function (response) {
                 // console.log(response);
-                setImageURL(response.data.data.display_url);
+                setImageurl(response.data.data.display_url);
             })
             .catch(function (error) {
                 console.log(error);
             });
     };
+
+    const { id } = useParams()
+    console.log(id)
+
+    const [editBlogsdetails, setEditBologDetails] = useState([]);
+    console.log(editBlogsdetails)
+
+    useEffect(() => {
+        fetch(`http://localhost:5000/blogDetails/${id}`)
+            .then(res => res.json())
+        .then(data =>  setEditBologDetails(data))
+     },[id])
+
+    const { _id, Author, blog, date, email, imageURL, title } = editBlogsdetails
+
     return (
-        <div >
-            <TopHeader />
-            <Nabbar/>
+        <div>
             <div class="container m-5">
             <form onSubmit={handleSubmit(onSubmit)}>
             <div class="mb-3 col-md-9 mx-auto">
@@ -71,7 +83,8 @@ function AddBlog() {
                         class="form-control "
                         {...register("title", { required: true })}
                         // id="exampleFormControlInput1"
-                        placeholder="Title"
+                            placeholder="Title"
+                            defaultValue={title}
                     />
                 </div>
                 <br />
@@ -84,8 +97,9 @@ function AddBlog() {
                     {...register("blog")}
                     id="exampleFormControlTextarea1"
                     rows="3"
-                        placeholder="Leave a story"
-                        style={{height:"400px"}}
+                    placeholder="Leave a story"
+                            style={{ height: "400px" }}
+                            defaultValue={blog}
                 ></textarea>
             </div>
                 <br />
@@ -98,7 +112,8 @@ function AddBlog() {
                         class="form-control "
                         {...register("Author", { required: true })}
                         // id="exampleFormControlInput1"
-                        placeholder="Author"
+                            placeholder="Author"
+                            defaultValue={Author}
                     />
                 </div>
                 <br />
@@ -112,6 +127,7 @@ function AddBlog() {
                         class="form-control"
                         onChange={handleImageUpload}
                         id="Photo"
+
                     />
                 </div>
                 <br />
@@ -124,7 +140,7 @@ function AddBlog() {
                         class="form-control "
                         {...register("email", { required: true })}
                         id="exampleFormControlInput1"
-                        defaultValue={loggedInUser.email}
+                        defaultValue={email}
                     />
                 </div>
                </div>
@@ -134,9 +150,8 @@ function AddBlog() {
                 </div>
             </form>
             </div>
-            <Footer/>
         </div>
-    );
+    )
 }
 
-export default AddBlog;
+export default EditBlog;

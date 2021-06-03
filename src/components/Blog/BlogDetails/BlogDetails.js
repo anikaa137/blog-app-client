@@ -6,17 +6,16 @@ import TopHeader from '../../Heder/Topheader/TopHeader';
 import Footer from '../../Share/Footer/Footer'
 
 function BlogDetails() {
-    const [blogsdetails, setBologDetails] = useState([]);
-    const {_id, Author,blog,date,email,imageURL,title} = blogsdetails;
-
     const { id } = useParams()
-    console.log(blogsdetails);
-
+    const [blogsdetails, setBologDetails] = useState([]);
+    console.log(blogsdetails)
     useEffect(() => {
         fetch(`http://localhost:5000/blogDetails/${id}`)
             .then(res => res.json())
         .then(data => setBologDetails(data))
      },[])
+     const {_id, Author,blog,date,email,imageURL,title} = blogsdetails
+
 
     return (
         <div >

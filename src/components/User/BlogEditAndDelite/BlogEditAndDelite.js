@@ -11,10 +11,12 @@ function BlogEditAndDelite({ blogg }) {
     const { _id, Author, blog, date, email, imageURL, title } = blogg;
     let history = useHistory();
 
+    // read blog
     const readBlog = (id) => {
         console.log("read");
         history.push(`/blogdetailes/${id}`);
     };
+                //delete blog
     function deleteBlog(id) {
         console.log(id);
         fetch(`http://localhost:5000/delete/${id}`, {
@@ -23,15 +25,15 @@ function BlogEditAndDelite({ blogg }) {
             .then((res) => res.json())
             .then((result) => {
                 if (result) {
-                alert('Delete a story')
+             alert('Delete a story')
                 setRender(render + 1)
             }
             });
     }
+            //edit blog
+    let blogEditHistory = useHistory();
     function loadProduct(id) {
-        fetch(`http://localhost:5000/blogDetails/${id}`)
-        .then(res => res.json())
-    .then(data =>  setBologDetails(data))
+        blogEditHistory.push(`/EditBlog/${id}`);
     }
 
     return (
