@@ -24,7 +24,7 @@ function EditBlog() {
             time: new Date().setHours(24)
         };
     console.log(eventdata)
-    fetch(` http://localhost:5000/updateBlog/${id}`, {
+    fetch(` https://desolate-brushlands-08726.herokuapp.com//updateBlog/${id}`, {
         method: "PATCH",
         headers: { "Content-type": "application/json" },
         body: JSON.stringify(eventdata),
@@ -63,7 +63,7 @@ function EditBlog() {
     console.log(editBlogsdetails)
 
     useEffect(() => {
-        fetch(`http://localhost:5000/blogDetails/${id}`)
+        fetch(`https://desolate-brushlands-08726.herokuapp.com//blogDetails/${id}`)
             .then(res => res.json())
         .then(data =>  setEditBologDetails(data))
      },[id])
